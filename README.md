@@ -1,6 +1,6 @@
 # ⚓ Smart Anchor V1: Quick Page Navigation Tool
 
-![Screenshot of Smart Anchor Pop-up Menu (replace with actual screenshot)](https://i.imgur.com/YOUR_SCREENSHOT_LINK.png)
+
 
 Smart Anchor V1 is a minimalist extension for Chromium-based browsers (Chrome, Opera, Edge). It allows you to quickly create up to 5 permanent anchors (labels) on any web page and instantly return to them after scrolling or refreshing the page.
 
@@ -69,5 +69,6 @@ This extension was created using standard Chrome extension APIs:
 * Pure JavaScript, HTML, CSS.
 
 ### License
+
 
 This project is licensed under the MIT License. //-- TRANSLATE TO ENGLISH
