@@ -71,4 +71,5 @@ This extension was created using standard Chrome extension APIs:
 ### License
 
 
-This project is licensed under the MIT License. //-- TRANSLATE TO ENGLISH
+This project is licensed under the MIT License.
+
