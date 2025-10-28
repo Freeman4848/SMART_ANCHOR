@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Anchor",
+  "version": "1.0",
+  "description": "5 reusable anchors for quick page navigation. Set a mark and jump back instantly.",
+  
+  "permissions": ["activeTab", "scripting", "storage"], 
+  
+  "background": {
+    "service_worker": "background_v3.js"  
+  },
+  
+  "action": {
+    "default_title": "Smart Anchor V1 by Freeman4848",
+    "default_popup": "popup.html" 
+  },
+
+  "icons": {
+    "128": "icons/anchor128.png" 
+  }
+}

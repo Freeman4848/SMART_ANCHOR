@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Anchor V1</title>
+    <style>
+        
+        body { 
+            width: 180px; 
+            padding: 8px; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #3c3c3c; 
+            color: #d4d4d4; 
+        }
+        h3 {
+             color: #ffffff;
+             
+             font-size: 20px; 
+             margin-top: 5px;
+             margin-bottom: 8px;
+             font-weight: 600; 
+             text-align: center; 
+        }
+        .btn-group {
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn-group button { 
+            width: 48%; 
+            padding: 5px 0; 
+            font-size: 12px; 
+            margin: 0;
+            cursor: pointer;
+            font-weight: 400; 
+            border-radius: 4px;
+            transition: background-color 0.2s; 
+        }
+        
+        
+        .btn-set { 
+            background-color: #555555; 
+            color: #ffffff; 
+            border: 1px solid #777777;
+        }
+        .btn-jump { 
+            background-color: #666666; 
+            color: #ffffff; 
+            border: 1px solid #888888;
+        }
+        .btn-reset { 
+            width: 100%; 
+            margin-top: 8px; 
+            background-color: #555555; 
+            color: #ffffff; 
+            border: 1px solid #777777;
+            
+            padding: 4px 0; 
+            font-size: 12px; 
+            font-weight: 400; 
+        }
+
+        
+        .btn-set:hover, .btn-jump:hover, .btn-reset:hover {
+            background-color: #777777;
+        }
+    </style>
+</head>
+<body>
+    <h3>Smart Anchor</h3>
+    <div id="buttons-container">
+    </div>
+    <button id="reset-all" class="btn-reset">Reset All</button>
+    <script src="popup.js"></script>
+</body>
+</html>
