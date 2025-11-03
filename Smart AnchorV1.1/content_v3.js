@@ -1,4 +1,4 @@
-﻿// Функции showToast и jumpToAnchorLogic не меняются
+
 
 function showToast(message, isError = false) {
     let toast = document.getElementById('smart-anchor-toast');
@@ -49,7 +49,7 @@ function jumpToAnchorLogic(id, savedAnchorText) {
     }
 }
 
-// --- Основной код ---
+
 (function() {
     if (window.isAnchorScriptLoaded) {
         return; 
@@ -75,7 +75,7 @@ function jumpToAnchorLogic(id, savedAnchorText) {
         }
     }
 
-    // Слушатель сообщений от background.js (ИСПРАВЛЕНА ЛОГИКА ОПРЕДЕЛЕНИЯ ID)
+   
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         const command = request.action;
         
@@ -94,7 +94,7 @@ function jumpToAnchorLogic(id, savedAnchorText) {
             setAnchor(id, textToSet);
         
         } else if (command.startsWith('v3_jump-')) {
-            const id = command.substring(8); // <-- ИСПРАВЛЕНО
+            const id = command.substring(8); 
             chrome.runtime.sendMessage({ action: 'v3_get-anchor', id: id }, (response) => {
                 if (chrome.runtime.lastError) return console.error(chrome.runtime.lastError.message);
                 if (response && response.anchorText) {
