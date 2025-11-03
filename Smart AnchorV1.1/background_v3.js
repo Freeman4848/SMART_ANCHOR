@@ -1,4 +1,4 @@
-// --- Хранилище и состояние ---
+
 let anchors = {};
 let anchorsLoadedPromise;
 
@@ -18,9 +18,7 @@ async function saveAnchors() {
     await chrome.storage.local.set({ 'v3_anchors': anchors });
 }
 
-// --- Основная логика ---
 
-// Универсальная функция для отправки сообщения на активную вкладку
 function sendMessageToContent(tabId, message) {
      chrome.scripting.executeScript({
         target: { tabId: tabId },
@@ -33,7 +31,7 @@ function sendMessageToContent(tabId, message) {
     });
 }
 
-// --- Создание контекстного меню ---
+
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.removeAll(() => {
         chrome.contextMenus.create({ id: "parent", title: "Smart Anchor", contexts: ["all"] });
@@ -49,14 +47,12 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 
-// --- Слушатели событий ---
 
-// Слушатель кликов по контекстному меню
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     await anchorsLoadedPromise;
     if (info.menuItemId.startsWith('set-context-')) {
         const id = info.menuItemId.split('-')[2];
-        // Команда для content_v3.js, чтобы он использовал текст из контекста
+      
         sendMessageToContent(tab.id, { 
             action: `v3_set-from-context-${id}`, 
             selectionText: info.selectionText 
@@ -69,11 +65,11 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     }
 });
 
-// Слушатель горячих клавиш
+
 chrome.commands.onCommand.addListener(async (command, tab) => {
     await anchorsLoadedPromise;
     
-    // Карта для перевода команд манифеста в наши внутренние команды
+  
     const commandMap = {
         "set-anchor-1": { action: 'v3_set-1', needsSelection: true },
         "jump-to-anchor-1": { action: 'v3_jump-1' },
@@ -85,7 +81,7 @@ chrome.commands.onCommand.addListener(async (command, tab) => {
     if (!cmd) return;
 
     if (cmd.needsSelection) {
-        // Запрашиваем выделенный текст и отправляем его с командой
+      
         chrome.scripting.executeScript({
             target: { tabId: tab.id },
             func: () => window.getSelection().toString()
@@ -97,13 +93,13 @@ chrome.commands.onCommand.addListener(async (command, tab) => {
             });
         });
     } else {
-        // Просто отправляем команду (например, для перехода)
+    
         sendMessageToContent(tab.id, { action: cmd.action });
     }
 });
 
 
-// Слушатель сообщений от скриптов (popup, content)
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     (async () => {
         await anchorsLoadedPromise;
@@ -122,5 +118,5 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         }
     })();
     
-    return true; // для асинхронного ответа
+    return true; 
 });
