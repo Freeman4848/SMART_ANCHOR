@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Anchor",
+  "version": "1.1",
+  "description": "5 reusable anchors for quick page navigation. Set a mark and jump back instantly.",
+  
+  "permissions": [
+    "activeTab", 
+    "scripting", 
+    "storage",
+    "contextMenus"
+  ], 
+  
+  "background": {
+    "service_worker": "background_v3.js"  
+  },
+  
+  "action": {
+    "default_title": "Smart Anchor V1.1 by Freeman4848",
+    "default_popup": "popup.html" 
+  },
+
+  "icons": {
+    "128": "icons/anchor128.png" 
+  },
+
+  "commands": {
+    "set-anchor-1": {
+      "suggested_key": {
+        "default": "Alt+Shift+1"
+      },
+      "description": "Set Anchor #1"
+    },
+    "jump-to-anchor-1": {
+      "suggested_key": {
+        "default": "Alt+Shift+3"
+      },
+      "description": "Jump to Anchor #1"
+    },
+    "set-anchor-2": {
+      "suggested_key": {
+        "default": "Alt+Shift+2"
+      },
+      "description": "Set Anchor #2"
+    },
+    "jump-to-anchor-2": {
+      "suggested_key": {
+        "default": "Alt+Shift+4"
+      },
+      "description": "Jump to Anchor #2"
+    }
+  }
+}
