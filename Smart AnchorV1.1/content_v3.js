@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿
+=======
+
+>>>>>>> 4aa4b6a3fd708e56f76179ee077d5047911d9b49
 
 function showToast(message, isError = false) {
     let toast = document.getElementById('smart-anchor-toast');
@@ -75,7 +79,11 @@ function jumpToAnchorLogic(id, savedAnchorText) {
         }
     }
 
+<<<<<<< HEAD
     
+=======
+   
+>>>>>>> 4aa4b6a3fd708e56f76179ee077d5047911d9b49
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         const command = request.action;
         

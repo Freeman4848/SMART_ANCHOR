@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4aa4b6a3fd708e56f76179ee077d5047911d9b49
 let anchors = {};
 let anchorsLoadedPromise;
 
@@ -51,6 +55,10 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     await anchorsLoadedPromise;
     if (info.menuItemId.startsWith('set-context-')) {
         const id = info.menuItemId.split('-')[2];
+<<<<<<< HEAD
+=======
+      
+>>>>>>> 4aa4b6a3fd708e56f76179ee077d5047911d9b49
         sendMessageToContent(tab.id, { 
             action: `v3_set-from-context-${id}`, 
             selectionText: info.selectionText 
@@ -63,9 +71,17 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     }
 });
 
+<<<<<<< HEAD
 chrome.commands.onCommand.addListener(async (command, tab) => {
     await anchorsLoadedPromise;
     
+=======
+
+chrome.commands.onCommand.addListener(async (command, tab) => {
+    await anchorsLoadedPromise;
+    
+  
+>>>>>>> 4aa4b6a3fd708e56f76179ee077d5047911d9b49
     const commandMap = {
         "set-anchor-1": { action: 'v3_set-1', needsSelection: true },
         "jump-to-anchor-1": { action: 'v3_jump-1' },
@@ -77,6 +93,10 @@ chrome.commands.onCommand.addListener(async (command, tab) => {
     if (!cmd) return;
 
     if (cmd.needsSelection) {
+<<<<<<< HEAD
+=======
+      
+>>>>>>> 4aa4b6a3fd708e56f76179ee077d5047911d9b49
         chrome.scripting.executeScript({
             target: { tabId: tab.id },
             func: () => window.getSelection().toString()
@@ -88,11 +108,19 @@ chrome.commands.onCommand.addListener(async (command, tab) => {
             });
         });
     } else {
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 4aa4b6a3fd708e56f76179ee077d5047911d9b49
         sendMessageToContent(tab.id, { action: cmd.action });
     }
 });
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4aa4b6a3fd708e56f76179ee077d5047911d9b49
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     (async () => {
         await anchorsLoadedPromise;
@@ -112,4 +140,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     })();
     
     return true; 
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 4aa4b6a3fd708e56f76179ee077d5047911d9b49
